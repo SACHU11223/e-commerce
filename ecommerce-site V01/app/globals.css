@@ -1,0 +1,499 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap");
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 263 70% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 263 70% 50%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar variables */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 263 70% 50%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 263 70% 50%;
+
+    /* Sidebar variables */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 240 5.9% 10%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display", serif;
+  }
+  body {
+    font-family: "Poppins", sans-serif;
+  }
+  .font-serif {
+    font-family: "Cormorant Garamond", serif;
+  }
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s infinite ease-in-out;
+}
+
+.animate-float {
+  animation: float 6s infinite ease-in-out;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px rgba(123, 31, 162, 0.5);
+}
+
+/* Gradient Backgrounds */
+.bg-gradient-primary {
+  @apply bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-700 dark:to-indigo-700;
+}
+
+.bg-gradient-secondary {
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-700 dark:to-cyan-700;
+}
+
+.bg-gradient-gold {
+  @apply bg-gradient-to-r from-amber-500 to-yellow-400 dark:from-amber-600 dark:to-yellow-500;
+}
+
+.bg-gradient-royal {
+  @apply bg-gradient-to-r from-slate-800 to-slate-700 dark:from-slate-900 dark:to-slate-800;
+}
+
+.bg-gradient-sunset {
+  @apply bg-gradient-to-r from-orange-500 to-red-500 dark:from-orange-600 dark:to-red-600;
+}
+
+.bg-gradient-ocean {
+  @apply bg-gradient-to-r from-blue-800 to-cyan-600 dark:from-blue-900 dark:to-cyan-700;
+}
+
+.bg-gradient-rose {
+  @apply bg-gradient-to-r from-pink-400 to-rose-300 dark:from-pink-500 dark:to-rose-400;
+}
+
+.bg-gradient-dark-1 {
+  @apply bg-gradient-to-br from-slate-900 to-purple-900 dark:from-black dark:to-slate-900;
+}
+
+.bg-gradient-dark-2 {
+  @apply bg-gradient-to-br from-slate-800 to-blue-900 dark:from-slate-900 dark:to-blue-950;
+}
+
+.bg-gradient-dark-3 {
+  @apply bg-gradient-to-br from-slate-800 to-indigo-900 dark:from-slate-900 dark:to-indigo-950;
+}
+
+.bg-gradient-dark-4 {
+  @apply bg-gradient-to-br from-gray-800 to-slate-900 dark:from-gray-900 dark:to-slate-950;
+}
+
+.bg-gradient-dark-5 {
+  @apply bg-gradient-to-br from-blue-900 to-indigo-900 dark:from-blue-950 dark:to-indigo-950;
+}
+
+.bg-gradient-dark-6 {
+  @apply bg-gradient-to-br from-purple-900 to-pink-900 dark:from-purple-950 dark:to-pink-950;
+}
+
+.bg-gradient-dark-7 {
+  @apply bg-gradient-to-br from-cyan-800 to-blue-900 dark:from-cyan-900 dark:to-blue-950;
+}
+
+.bg-gradient-dark-8 {
+  @apply bg-gradient-to-br from-blue-800 to-indigo-900 dark:from-blue-900 dark:to-indigo-950;
+}
+
+.bg-gradient-dark-agent {
+  @apply bg-gradient-to-br from-amber-900 to-orange-800 dark:from-amber-950 dark:to-orange-900;
+}
+
+/* Light Gradient Backgrounds */
+.bg-gradient-light-1 {
+  @apply bg-gradient-to-br from-slate-100 to-blue-100 dark:from-slate-800 dark:to-blue-900;
+}
+
+.bg-gradient-light-2 {
+  @apply bg-gradient-to-br from-gray-100 to-slate-200 dark:from-gray-800 dark:to-slate-900;
+}
+
+.bg-gradient-light-3 {
+  @apply bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900 dark:to-indigo-900;
+}
+
+.bg-gradient-light-4 {
+  @apply bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900;
+}
+
+.bg-gradient-light-5 {
+  @apply bg-gradient-to-br from-cyan-100 to-blue-100 dark:from-cyan-900 dark:to-blue-900;
+}
+
+/* Button Gradients */
+.btn-gradient-1 {
+  @apply bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 dark:from-purple-700 dark:to-indigo-700 dark:hover:from-purple-800 dark:hover:to-indigo-800 transition-all duration-300;
+}
+
+.btn-gradient-2 {
+  @apply bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 dark:from-orange-600 dark:to-red-600 dark:hover:from-orange-700 dark:hover:to-red-700 transition-all duration-300;
+}
+
+.btn-gradient-3 {
+  @apply bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 dark:from-green-600 dark:to-emerald-600 dark:hover:from-green-700 dark:hover:to-emerald-700 transition-all duration-300;
+}
+
+.btn-gradient-4 {
+  @apply bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 dark:from-blue-600 dark:to-indigo-600 dark:hover:from-blue-700 dark:hover:to-indigo-700 transition-all duration-300;
+}
+
+.btn-gradient-5 {
+  @apply bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 dark:from-cyan-600 dark:to-blue-600 dark:hover:from-cyan-700 dark:hover:to-blue-700 transition-all duration-300;
+}
+
+.btn-gradient-agent {
+  @apply bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 dark:from-amber-600 dark:to-orange-600 dark:hover:from-amber-700 dark:hover:to-orange-700 transition-all duration-300;
+}
+
+/* Text Gradients */
+.text-gradient-primary {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-500 dark:to-indigo-500;
+}
+
+.text-gradient-gold {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-yellow-400 dark:from-amber-400 dark:to-yellow-300;
+}
+
+.text-gradient-1 {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-500 dark:to-indigo-500;
+}
+
+.text-gradient-2 {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-red-500 dark:from-orange-400 dark:to-red-400;
+}
+
+.text-gradient-3 {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-green-500 to-emerald-500 dark:from-green-400 dark:to-emerald-400;
+}
+
+.text-gradient-4 {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-500 dark:from-blue-400 dark:to-indigo-400;
+}
+
+.text-gradient-5 {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500 dark:from-cyan-400 dark:to-blue-400;
+}
+
+.text-gradient-agent {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-orange-500 dark:from-amber-400 dark:to-orange-400;
+}
+
+/* Loading Spinner */
+.luxury-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(123, 31, 162, 0.1);
+  border-radius: 50%;
+  border-top-color: #7b1fa2;
+  animation: rotate 1s linear infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-purple-600 to-indigo-600 dark:from-purple-700 dark:to-indigo-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gradient-to-b from-indigo-600 to-purple-600 dark:from-indigo-700 dark:to-purple-700;
+}
+
+/* Animated Gradients */
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradientAnimation 5s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient-primary {
+  @apply bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 dark:from-purple-700 dark:via-indigo-700 dark:to-purple-700 animated-gradient;
+}
+
+.animated-gradient-gold {
+  @apply bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 dark:from-amber-600 dark:via-yellow-500 dark:to-amber-600 animated-gradient;
+}
+
+.animated-gradient-agent {
+  @apply bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 dark:from-amber-600 dark:via-orange-600 dark:to-amber-600 animated-gradient;
+}
+
+/* Card with animated border */
+.animated-border-card {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.animated-border-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  @apply bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 dark:from-purple-700 dark:via-indigo-700 dark:to-purple-700;
+  background-size: 200% 200%;
+  animation: gradientAnimation 5s ease infinite;
+  border-radius: inherit;
+}
+
+.animated-border-card-agent::before {
+  @apply bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 dark:from-amber-600 dark:via-orange-600 dark:to-amber-600;
+}
+
