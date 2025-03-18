@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js"
 // IMPORTANT: Replace these with your actual Supabase credentials
 // You can set these in your environment variables
 const supabaseUrl = process.env.https://ohcwlaigoueajfulkmhk.supabase.co || ""
-const supabaseAnonKey = process.env.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9oY3dsYWlnb3VlYWpmdWxrbWhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk4MDIzOTAsImV4cCI6MjA1NTM3ODM5MH0.nHnxg7r5jZQzCLuMzcGpO9Z4odbno-hCqCDQ8Q6Gdxg || ""
+const supabaseAnonKey = process.env.supabaseAnonKey || ""
 
 // Create a single supabase client for the entire app
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
